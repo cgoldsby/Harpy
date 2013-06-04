@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/ArtSabintsev/Harpy"
   s.author       = { "Arthur Ariel Sabintsev" => "arthur@sabintsev.com" }
   s.source       = { :git => "https://github.com/ArtSabintsev/Harpy.git", :tag => "2.3.4" }
-  s.platform     = :ios, '5.0'
+  s.platform     = :ios, '4.3'
   s.source_files = 'Harpy/*.{h,m}'
   s.resources    = 'Harpy/Harpy.bundle'
   s.requires_arc = true

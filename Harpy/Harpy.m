@@ -8,6 +8,8 @@
 
 #import "Harpy.h"
 
+#define HARPY_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 /// NSUserDefault macros to store user's preferences for HarpyAlertTypeSkip
 #define kHarpyDefaultShouldSkipVersion      @"Harpy Should Skip Version Boolean"
 #define kHarpyDefaultSkippedVersion         @"Harpy User Decided To Skip Version Update Boolean"
@@ -52,6 +54,11 @@
 #pragma mark - Public Methods
 - (void)checkVersion
 {
+    // Cheat to get around async method call ... but it meet my needs.
+    if (HARPY_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0")) {
+        return;
+    }
+    
     // Asynchronously query iTunes AppStore for publically available version
     NSString *storeString = [NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@", self.appID];
     NSURL *storeURL = [NSURL URLWithString:storeString];

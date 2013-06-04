@@ -33,7 +33,7 @@ typedef NS_ENUM(NSUInteger, HarpyAlertType)
  The harpy delegate can be used to know when the update dialog is shown and which action a user took.
  See the @protocol declaration above.
  */
-@property (weak, nonatomic) id<HarpyDelegate> delegate;
+@property (assign, nonatomic) id<HarpyDelegate> delegate;
 
 /**
  The app id of your app.
