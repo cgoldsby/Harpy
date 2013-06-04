@@ -8,7 +8,7 @@
 
 #import "Harpy.h"
 
-#define HARPY_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define HARPY_SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
 /// NSUserDefault macros to store user's preferences for HarpyAlertTypeSkip
 #define kHarpyDefaultShouldSkipVersion      @"Harpy Should Skip Version Boolean"
@@ -66,8 +66,8 @@
 #pragma mark - Public Methods
 - (void)checkVersion
 {
-    // Cheat to get around async method call ... but it meet my needs.
-    if (HARPY_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"5.0")) {
+    // Cheat to get around async method call that is not support in version below 5.0 ... but it meet my needs.
+    if (HARPY_SYSTEM_VERSION_LESS_THAN(@"5.0")) {
         return;
     }
     
