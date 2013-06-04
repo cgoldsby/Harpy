@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Notify users that a new version of your iOS app is available, and prompt them with the AppStore link."
   s.homepage     = "https://github.com/ArtSabintsev/Harpy"
   s.author       = { "Arthur Ariel Sabintsev" => "arthur@sabintsev.com" }
-  s.source       = { :git => "https://github.com/cgoldsby/Harpy.git", :tag => "feature/iOS-4.3-compliance" }
+  s.source       = { :git => "https://github.com/cgoldsby/Harpy.git", :branch => "feature/iOS-4.3-compliance" }
   s.platform     = :ios, '4.3'
   s.source_files = 'Harpy/*.{h,m}'
   s.resources    = 'Harpy/Harpy.bundle'
