@@ -25,8 +25,6 @@
 
 @property (strong, nonatomic) NSDate *lastVersionCheckPerformedOnDate;
 
-@property (assign, nonatomic) BOOL isAlertVisible;
-
 - (void)launchAppStore;
 
 @end
@@ -204,11 +202,6 @@
 
 - (void)showAlertWithAppStoreVersion:(NSString *)currentAppStoreVersion
 {
-    if (self.isAlertVisible) {
-        return;
-    }
-    
-    
     // Reference App's name
     NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleNameKey];
     
@@ -259,8 +252,6 @@
         default:
             break;
     }
-
-    self.isAlertVisible = YES;
     
     if([self.delegate respondsToSelector:@selector(harpyDidShowUpdateDialog)]){
         [self.delegate harpyDidShowUpdateDialog];
@@ -333,9 +324,6 @@
         default:
             break;
     }
-    
-    self.isAlertVisible = NO;
-
 }
 
 @end
