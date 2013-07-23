@@ -52,6 +52,11 @@ typedef NS_ENUM(NSUInteger, HarpyAlertType)
 @property (copy, nonatomic) NSString *countryCode;
 
 /**
+ Name of the application. If not set harpy will use kCFBundleNameKey.
+ */
+@property (copy, nonatomic) NSString *applicationName;
+
+/**
  The shared Harpy instance.
  */
 + (id)sharedInstance;

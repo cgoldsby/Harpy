@@ -105,7 +105,7 @@
                         
                     } else {
                         
-                        // Current installed version is the newest public version or newer (e.g., dev version)	
+                        // Current installed version is the newest public version or newer (e.g., dev version)  
                         
                     }
                     
@@ -203,7 +203,13 @@
 - (void)showAlertWithAppStoreVersion:(NSString *)currentAppStoreVersion
 {
     // Reference App's name
-    NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleNameKey];
+    NSString *appName;
+    
+    if (self.applicationName == nil) {
+        appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleNameKey];
+    } else {
+        appName = self.applicationName;
+    }
     
     switch ( self.alertType ) {
             
